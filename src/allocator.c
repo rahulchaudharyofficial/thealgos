@@ -1,13 +1,25 @@
-#ifndef _ALLOCATOR_H_
-#define _ALLOCATOR_H_
-	struct Collection {
-		void *value;
-		struct Collection *next;
-		struct Collection *previous;
-	};
+#include<stdlib.h>
+#include "allocator.h"
 
-	typedef struct Collection node_t;
+node_t* create_node(void *value)
+{
+    node_t *node = NULL;
+    if(value)
+    {
+        node = (node_t*) malloc(sizeof(node_t));
+        node->value = value;
+        node->next = NULL;
+        node->previous = NULL;
+    }
+    return node;
+}
 
-	node_t* create_node(void*);
-	node_t* release_node(node_t*);
-#endif
+node_t* release_node(node_t *node) 
+{
+    if(node)
+    {
+        free(node);
+        node = NULL;
+    }
+	return node;
+}

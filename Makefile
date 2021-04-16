@@ -16,10 +16,10 @@ OBJS=$(patsubst $(SRCDIR)/%.c,$(OBJDIR)/%.o, $(SRCS))
 all:$(BIN)
 
 $(BIN): $(OBJS)
-	$(CC) $(CFLAG) -o $@ $<
+	$(CC) $(CFLAGS) $(OBJS) -o $@
 
-$(OBJS): $(SRCS)
-	$(CC) $(CFLAG) -c $<
+$(OBJDIR)/%.o : $(SRCDIR)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm $(OBJDIR)/* $(BINDIR)/* $(SRCDIR)/*.o
