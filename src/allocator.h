@@ -1,5 +1,6 @@
 #ifndef _ALLOCATOR_H_
 #define _ALLOCATOR_H_
+	#include<stdlib.h>
 	struct Collection
 	{
 		void *value;

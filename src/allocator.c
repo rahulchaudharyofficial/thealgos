@@ -1,4 +1,3 @@
-#include<stdlib.h>
 #include "allocator.h"
 
 node_t* create_node(void *value)
