@@ -7,28 +7,28 @@ BINDIR=bin
 VPATH=src
 PRINT_SRCS=ps
 PRINT_OBJS=po
+BIN=$(BINDIR)/main
 
 SRCS=$(wildcard $(SRCDIR)/*.c)
-.PHONY=$(PRINT_SRCS)
-.PHONY=$(PRINT_OBJS)
-
-$(PRINT_SRCS):
-	@printf "SRCS = $(SRCS)\n"
-
 OBJS=$(patsubst $(SRCDIR)/%.c,$(OBJDIR)/%.o, $(SRCS))
 
-$(PRINT_OBJS):
-	@printf "OBJS = $(OBJS)\n"
-
-BIN=$(BINDIR)/main
 
 all:$(BIN)
 
 $(BIN): $(OBJS)
-	$(CC) $(CFLAG) $< -o $@
+	$(CC) $(CFLAG) -o $@ $<
 
 $(OBJS): $(SRCS)
 	$(CC) $(CFLAG) -c $<
 
 clean:
 	rm $(OBJDIR)/* $(BINDIR)/* $(SRCDIR)/*.o
+
+.PHONY=$(PRINT_SRCS)
+.PHONY=$(PRINT_OBJS)
+
+$(PRINT_OBJS):
+	@printf "OBJS = $(OBJS)\n"
+
+$(PRINT_SRCS):
+	@printf "SRCS = $(SRCS)\n"
