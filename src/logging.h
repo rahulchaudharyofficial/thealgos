@@ -14,4 +14,5 @@
 
     void log_test_pass(const char*,const char*,const char*);
     void log_test_fail(const char*,const char*,const char*);
+    void log_message(const char*,const char*);
 #endif

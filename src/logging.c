@@ -14,3 +14,9 @@ void log_test_fail(const char *color,const char *file_name,const char *test_name
     printf(UNIT_TEST_PASS_MESSAGE,color,file_name,test_name);
     printf("%s\n",COLOR_RESET);
 }
+
+void log_message(const char* color,const char* message)
+{
+    printf("%s%s\n",color,message);
+    printf("%s\n",COLOR_RESET);
+}
