@@ -71,5 +71,9 @@ node_t* get_node(node_t* head,void* value)
 
 void travere(node_t* head)
 {
-
+    node_t *temp = head;
+    while(temp->next!=NULL) {
+        temp = temp->next;
+        printf("%p\t",(temp->value));
+    }
 }
