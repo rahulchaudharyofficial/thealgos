@@ -22,7 +22,7 @@ $(OBJDIR)/%.o : $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm $(OBJDIR)/* $(BINDIR)/* $(SRCDIR)/*.o
+	rm $(OBJDIR)/* $(BINDIR)/*
 
 .PHONY=$(PRINT_SRCS)
 .PHONY=$(PRINT_OBJS)
@@ -32,3 +32,8 @@ $(PRINT_OBJS):
 
 $(PRINT_SRCS):
 	@printf "SRCS = $(SRCS)\n"
+
+run:
+	./$(BIN)
+
+test: clean all run

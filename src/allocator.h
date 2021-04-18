@@ -1,14 +1,14 @@
 #ifndef _ALLOCATOR_H_
 #define _ALLOCATOR_H_
+	#include<stdio.h>
 	#include<stdlib.h>
-	struct Collection
+	typedef struct Collection
 	{
 		void *value;
 		struct Collection *next;
 		struct Collection *previous;
-	};
+	} node_t;
 
-	typedef struct Collection node_t;
 	node_t* create_node(void*);
 	node_t* release_node(node_t*);
 #endif
