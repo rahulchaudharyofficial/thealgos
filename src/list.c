@@ -60,7 +60,7 @@ node_t* add_node(node_t* head,void* value)
     return node;
 }
 
-node_t* remove_node(node_t* head,node_t* node)
+node_t* remove_node(node_t* head,void *node)
 {
     return NULL;
 }
