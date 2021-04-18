@@ -7,8 +7,7 @@
 void test_create_list()
 {
     node_t *head = create_list();
-    assert(head!=NULL);
-    assert(*((int*)head->value) == 0);
+    assert(head != NULL);
     log_test_pass(COLOR_GREENN,__FILE__,__func__);
 }
 
@@ -16,12 +15,29 @@ void test_create_list()
 void test_add_node()
 {
     node_t *head = create_list();    
-    for(int i=1;i<=10;i++)
-    {        
-        node_t *node = create_node(&i);
-        add_node(head,node);    
-    }
-
+    assert(head != NULL);
+    int a = 1;
+    int b = 2;
+    int c = 3;
+    int d = 4;
+    int e = 5;
+    int f = 6;
+    int g = 7;
+    int h = 8;
+    int i = 9;
+    int j = 10; 
+    
+    add_node(head,&a);
+    add_node(head,&b);
+    add_node(head,&c);
+    add_node(head,&d);
+    add_node(head,&e);
+    add_node(head,&f);
+    add_node(head,&g);
+    add_node(head,&h);
+    add_node(head,&i);
+    add_node(head,&j);
+    
     travere(head);
 }
 
