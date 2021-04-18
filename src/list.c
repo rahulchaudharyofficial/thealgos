@@ -1,6 +1,7 @@
 #include "list.h"
 #include "allocator.h"
 #include "logging.h"
+#include<stdio.h>
 
 const char *required_param_message = "Required param is null\n";
 const char *memory_allocation_message = "Failed to allocate memory when creating list\n";
@@ -24,6 +25,7 @@ node_t* create_list()
 
 node_t* add_node(node_t* head,void* value)
 {
+    printf("head value = %d\n",*((int*)(head->value)));
     if(head)
     {
         node_t *node = create_node(value);
@@ -31,6 +33,8 @@ node_t* add_node(node_t* head,void* value)
         {
             int *result_ptr = (int*) (head->value);
             *result_ptr = *result_ptr + 1;
+            head->value = result_ptr;
+
             if(*result_ptr == 0 || head->next == NULL) //Add first node
             {
                 head->next = node;
@@ -74,6 +78,7 @@ void travere(node_t* head)
     node_t *temp = head;
     while(temp->next!=NULL) {
         temp = temp->next;
-        printf("%p\t",(temp->value));
+        printf("%d\t",*((int*)(temp->value)));
     }
+    printf("\n");
 }

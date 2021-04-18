@@ -30,9 +30,11 @@ void test_release_node_without_null_value() {
 
 }
 
+/**
 int main(int argc, char const *argv[])
 {
     test_create_node_with_null_value();
     test_create_node_without_null_value();
     return 0;
 }
+*/
