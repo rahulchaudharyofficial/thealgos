@@ -2,6 +2,7 @@
 #include<assert.h>
 #include "list.h"
 #include "logging.h"
+#define MAX_LIST_SIZE 5
 
 
 void test_create_list()
@@ -16,28 +17,17 @@ void test_add_node()
 {
     node_t *head = create_list();    
     assert(head != NULL);
-    int a = 1;
-    int b = 2;
-    int c = 3;
-    int d = 4;
-    int e = 5;
-    int f = 6;
-    int g = 7;
-    int h = 8;
-    int i = 9;
-    int j = 10; 
-    
-    add_node(head,&a);
-    add_node(head,&b);
-    add_node(head,&c);
-    add_node(head,&d);
-    add_node(head,&e);
-    add_node(head,&f);
-    add_node(head,&g);
-    add_node(head,&h);
-    add_node(head,&i);
-    add_node(head,&j);
-    
+    int input[MAX_LIST_SIZE];
+
+    for(int i=0;i< MAX_LIST_SIZE; i++)
+    {
+        input[i] = (i+1);
+    }
+
+    for(int i=0;i<MAX_LIST_SIZE;i++)
+    {        
+        add_node(head, (input+i));
+    }
     travere(head);
 }
 

@@ -32,14 +32,26 @@ node_t* add_node(node_t* head,void* value)
         if(node)
         {
             node_t *temp = head;
-            
-            while(temp->next != NULL)
+            if(temp->next == NULL)
             {
-                temp = temp->next;
+                head->next = node;
+                head->previous = node;
+                node->previous = head;
+                int count = 1;
+                head->value = &count;
             }
-            temp->next = node;
-            node->previous = temp;
-            head->previous = node;
+            else
+            {
+                while(temp->next != NULL)
+                {
+                    temp = temp->next;
+                }
+                temp->next = node;
+                node->previous = temp;
+                head->previous = node;
+                int counter = *((int*) head->value) + 1;
+                head->value = (int*) &counter;
+            }
         }
     }
     else{
@@ -61,14 +73,10 @@ node_t* get_node(node_t* head,void* value)
 void travere(node_t* head)
 {
     node_t *temp = head;
+    printf("head [id = %p, value = %d, previous = %p, next = %p]\n",temp, *((int*)(head->value)),head->previous,head->next);
     while(temp->next != NULL) {
         temp = temp->next;
-        printf("%d\t",*((int*)(temp->value)));
+        printf("node [id = %p, value = %d, previous = %p, next = %p]\n",temp, *((int*)(temp->value)),temp->previous,temp->next);
     }
     printf("\n");
-}
-
-void increment_head(node_t *head)
-{
-
 }
