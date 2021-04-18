@@ -63,7 +63,7 @@ void travere(node_t* head)
     node_t *temp = head;
     while(temp->next != NULL) {
         temp = temp->next;
-        printf("%d\t",*((int*)(temp->value)));
+        printf("node [id = %p, value = %d, previous = %p, next = %p]\n",temp, *((int*)(temp->value)),temp->previous,temp->next);
     }
     printf("\n");
 }
