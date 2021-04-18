@@ -22,15 +22,3 @@ node_t* release_node(node_t *node)
     }
 	return node;
 }
-
-void print_node(node_t *node)
-{
-    if(node)
-    {
-        printf("node_t [value = %p, previous = %p, next = %p]\n",node->value,node->previous, node->next);
-    }
-    else
-    {
-        printf("%s: %s - Nothing to print as given node is NULL");
-    }
-}

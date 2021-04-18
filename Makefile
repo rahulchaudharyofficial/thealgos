@@ -35,3 +35,5 @@ $(PRINT_SRCS):
 
 run:
 	./$(BIN)
+
+test: clean all run
