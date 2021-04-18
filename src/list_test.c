@@ -17,7 +17,6 @@ void test_add_node()
 {
     node_t *head = create_list();    
     assert(head != NULL);
-    printf("head [id = %p, value = %d, previous = %p, next = %p]\n",head,*((int*)(head->value)),head->previous,head->next);
     int input[MAX_LIST_SIZE];
 
     for(int i=0;i< MAX_LIST_SIZE; i++)
@@ -26,7 +25,7 @@ void test_add_node()
     }
 
     for(int i=0;i<MAX_LIST_SIZE;i++)
-    {
+    {        
         add_node(head, (input+i));
     }
     travere(head);
